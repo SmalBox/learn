@@ -1,0 +1,28 @@
+Linux Shadowsocks Server Config
+
+1.Install Shadowsocks
+$Debian / Ubuntu:
+$sudo apt-get install python-pip
+$pip install shadowsocks
+
+CentOS:
+$yum install python-setuptools && easy_install pip
+$pip install shadowsocks
+
+2.Shadowsocks Config
+$sudo vi /etc/ss.json//建立一个ss.json存放配置文件
+Config content:
+{
+	"server":"服务器ip",
+	"server_port":服务器端口,
+	"password":"密码",
+	"timeout":300,
+	"method":"aes-256-cfb"
+}
+
+3.Start Shadowsocks
+$sudo vi /home/shadow.sh//将启动命令写入文件
+Command content:
+ssserver -c /etc/ss.json
+$nohup sh /home/shadow.sh &//在后台启动服务
+$netstat -lnp//查看对应端口是否开始监听
