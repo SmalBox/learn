@@ -1,0 +1,17 @@
+Git command note
+
+1.Create git
+	$ mkdir learnBox//创建目录作为仓库
+	$ cd learnBox//进入目录
+	$ pwd//显示仓库位置
+	$ git init//创建仓库（仓库根目录下有.git的隐藏目录，用ls -ah可以看到）
+
+2.Add & Commit file
+	$ git add readme.txt//添加文件到仓库
+	$ git commit -m "add readme.txt"//提交以上添加，填写修改信息
+
+3.Check the status & difference
+	$ git status//查看仓库状态
+	$ git diff readme.txt//查看具体修改了哪些
+	$ git log//从近到远查看提交日志
+	$ git log --pretty=oneline//简化日志每个只显示一行
