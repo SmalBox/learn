@@ -1,5 +1,9 @@
 Git command note
 
+Install: initialize user name and user email.
+	$ git config --global user.name "Your Name"
+	$ git config --global user.email "email@example.com"
+
 1.Create git
 	$ mkdir learnBox//创建目录作为仓库
 	$ cd learnBox//进入目录
@@ -15,3 +19,61 @@ Git command note
 	$ git diff readme.txt//查看具体修改了哪些
 	$ git log//从近到远查看提交日志
 	$ git log --pretty=oneline//简化日志每个只显示一行
+
+4.Reset
+	$ git reset --hard HEAD^ //退回上一个版本 '^'退回一个 '~100'退100个
+	$ git reset --hard <version id> //版本号写前几位即可，git自己会找
+	$ git reflog //记录执行过的命令
+
+5.Stage(index)
+	使用 "git add" 命令将工作区文件添加到stage暂存区。
+	使用 "git commit" 命令将stage暂存区中文件添加到分支。
+
+6.Manage modify
+	先add添加到stage，后commit到分支。
+	$ git diff HEAD -- readme.txt //查看工作区和版本库中最新版本区别
+
+7.Undo changes
+	1)无add无commit：
+		$ git checkout -- <file>
+	2)有add无commit：
+		$ git reset HEAD <file>
+		$ git checkout -- <file>
+	3)有add有commit：
+		$ git reset --hard HEAD^//退回上一版本
+	
+8.Remove file
+	$ rm <file> //删除工作区的文件
+	$ git rm <file> //如果真的想删，删除版本库里的文件
+	$ git checkout -- <file> //误删了工作区文件，用版本库恢复删除文件
+
+
+Remote repository
+	$ ssh-keygen -t rsa -C "email@example.com" //创建ssh协议公钥和私钥
+	//进入到GitHub中添加ssh key 即可远程推送
+
+9.Add remote repository =
+	$ git remote add origin https://github.com/SmalBox/learngit.git
+	$ git remote add origin git@github.com:SmalBox/learngit.git
+	//GitHub上的提示添加远程库.这两种都可以
+	$ git push -u origin master //将本地库推送到GitHub
+
+10.Clone from remote repository
+	$ git clone git@github.com:SmalBox/gitskills.git //从远程克隆到本地
+
+
+Manage branch
+
+11.Create & Combine branch
+	$ git branch //查看分支结构
+	$ git branch <name> //创建分支
+	$ git checkout <name> //切换分支
+	$ git checkout -b <name> //创建并切换分支
+	$ git merge <name> //合并某分支到当前分支
+	$ git branch -d <name> //删除某分支
+
+	$ git checkout -b dev //创建并切换 到dev分支
+	$ git branch //查看 分支
+	$ git checkout master //切换 到master分支
+	$ git merge dev //把dev分支 合并 到master分支
+	$ git branch -d dev //删除 dev分支
