@@ -71,6 +71,7 @@ Manage branch
 	$ git checkout -b <name> //创建并切换分支
 	$ git merge <name> //合并某分支到当前分支
 	$ git branch -d <name> //删除某分支
+	$ git branch -D <name> //强行删除某分支，例如强行删除未合并的分支
 
 	$ git checkout -b dev //创建并切换 到dev分支
 	$ git branch //查看 分支
@@ -93,3 +94,11 @@ Manage branch
 	$ git stash pop //恢复储藏，并删除stach记录
 	$ git stash apply stash@{0} //恢复到stash0
 	$ git stash drop //删除stash内容
+
+15.Collaboration
+	$ git remote //查看远程仓库信息(name)
+	$ git remote -v //查看远程仓库详细信息
+	$ git push <git name> <branch name> //推送分支 例如：git push origin master
+	$ git checkout -b dev origin/dev //创建本地dev链接远程仓库中的dev
+	$ git pull //推送失败，远程分支新，用此试图合并
+	$ git git  branch --set-upstream-to=<remote name>/<branch name> //无跟踪信息时，说明本地分支与远程分支没有建立关系，用此建立
