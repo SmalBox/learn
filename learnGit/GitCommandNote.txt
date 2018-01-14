@@ -5,75 +5,91 @@ Install: initialize user name and user email.
 	$ git config --global user.email "email@example.com"
 
 1.Create git
-	$ mkdir learnBox//´´½¨Ä¿Â¼×÷Îª²Ö¿â
-	$ cd learnBox//½øÈëÄ¿Â¼
-	$ pwd//ÏÔÊ¾²Ö¿âÎ»ÖÃ
-	$ git init//´´½¨²Ö¿â£¨²Ö¿â¸ùÄ¿Â¼ÏÂÓĞ.gitµÄÒş²ØÄ¿Â¼£¬ÓÃls -ah¿ÉÒÔ¿´µ½£©
+	$ mkdir learnBox//åˆ›å»ºç›®å½•ä½œä¸ºä»“åº“
+	$ cd learnBox//è¿›å…¥ç›®å½•
+	$ pwd//æ˜¾ç¤ºä»“åº“ä½ç½®
+	$ git init//åˆ›å»ºä»“åº“ï¼ˆä»“åº“æ ¹ç›®å½•ä¸‹æœ‰.gitçš„éšè—ç›®å½•ï¼Œç”¨ls -ahå¯ä»¥çœ‹åˆ°ï¼‰
 
 2.Add & Commit file
-	$ git add readme.txt//Ìí¼ÓÎÄ¼şµ½²Ö¿â
-	$ git commit -m "add readme.txt"//Ìá½»ÒÔÉÏÌí¼Ó£¬ÌîĞ´ĞŞ¸ÄĞÅÏ¢
+	$ git add readme.txt//æ·»åŠ æ–‡ä»¶åˆ°ä»“åº“
+	$ git commit -m "add readme.txt"//æäº¤ä»¥ä¸Šæ·»åŠ ï¼Œå¡«å†™ä¿®æ”¹ä¿¡æ¯
 
 3.Check the status & difference
-	$ git status//²é¿´²Ö¿â×´Ì¬
-	$ git diff readme.txt//²é¿´¾ßÌåĞŞ¸ÄÁËÄÄĞ©
-	$ git log//´Ó½üµ½Ô¶²é¿´Ìá½»ÈÕÖ¾
-	$ git log --pretty=oneline//¼ò»¯ÈÕÖ¾Ã¿¸öÖ»ÏÔÊ¾Ò»ĞĞ
+	$ git status//æŸ¥çœ‹ä»“åº“çŠ¶æ€
+	$ git diff readme.txt//æŸ¥çœ‹å…·ä½“ä¿®æ”¹äº†å“ªäº›
+	$ git log//ä»è¿‘åˆ°è¿œæŸ¥çœ‹æäº¤æ—¥å¿—
+	$ git log --pretty=oneline//ç®€åŒ–æ—¥å¿—æ¯ä¸ªåªæ˜¾ç¤ºä¸€è¡Œ
 
 4.Reset
-	$ git reset --hard HEAD^ //ÍË»ØÉÏÒ»¸ö°æ±¾ '^'ÍË»ØÒ»¸ö '~100'ÍË100¸ö
-	$ git reset --hard <version id> //°æ±¾ºÅĞ´Ç°¼¸Î»¼´¿É£¬git×Ô¼º»áÕÒ
-	$ git reflog //¼ÇÂ¼Ö´ĞĞ¹ıµÄÃüÁî
+	$ git reset --hard HEAD^ //é€€å›ä¸Šä¸€ä¸ªç‰ˆæœ¬ '^'é€€å›ä¸€ä¸ª '~100'é€€100ä¸ª
+	$ git reset --hard <version id> //ç‰ˆæœ¬å·å†™å‰å‡ ä½å³å¯ï¼Œgitè‡ªå·±ä¼šæ‰¾
+	$ git reflog //è®°å½•æ‰§è¡Œè¿‡çš„å‘½ä»¤
 
 5.Stage(index)
-	Ê¹ÓÃ "git add" ÃüÁî½«¹¤×÷ÇøÎÄ¼şÌí¼Óµ½stageÔİ´æÇø¡£
-	Ê¹ÓÃ "git commit" ÃüÁî½«stageÔİ´æÇøÖĞÎÄ¼şÌí¼Óµ½·ÖÖ§¡£
+	ä½¿ç”¨ "git add" å‘½ä»¤å°†å·¥ä½œåŒºæ–‡ä»¶æ·»åŠ åˆ°stageæš‚å­˜åŒºã€‚
+	ä½¿ç”¨ "git commit" å‘½ä»¤å°†stageæš‚å­˜åŒºä¸­æ–‡ä»¶æ·»åŠ åˆ°åˆ†æ”¯ã€‚
 
 6.Manage modify
-	ÏÈaddÌí¼Óµ½stage£¬ºócommitµ½·ÖÖ§¡£
-	$ git diff HEAD -- readme.txt //²é¿´¹¤×÷ÇøºÍ°æ±¾¿âÖĞ×îĞÂ°æ±¾Çø±ğ
+	å…ˆaddæ·»åŠ åˆ°stageï¼Œåcommitåˆ°åˆ†æ”¯ã€‚
+	$ git diff HEAD -- readme.txt //æŸ¥çœ‹å·¥ä½œåŒºå’Œç‰ˆæœ¬åº“ä¸­æœ€æ–°ç‰ˆæœ¬åŒºåˆ«
 
 7.Undo changes
-	1)ÎŞaddÎŞcommit£º
+	1)æ— addæ— commitï¼š
 		$ git checkout -- <file>
-	2)ÓĞaddÎŞcommit£º
+	2)æœ‰addæ— commitï¼š
 		$ git reset HEAD <file>
 		$ git checkout -- <file>
-	3)ÓĞaddÓĞcommit£º
-		$ git reset --hard HEAD^//ÍË»ØÉÏÒ»°æ±¾
+	3)æœ‰addæœ‰commitï¼š
+		$ git reset --hard HEAD^//é€€å›ä¸Šä¸€ç‰ˆæœ¬
 	
 8.Remove file
-	$ rm <file> //É¾³ı¹¤×÷ÇøµÄÎÄ¼ş
-	$ git rm <file> //Èç¹ûÕæµÄÏëÉ¾£¬É¾³ı°æ±¾¿âÀïµÄÎÄ¼ş
-	$ git checkout -- <file> //ÎóÉ¾ÁË¹¤×÷ÇøÎÄ¼ş£¬ÓÃ°æ±¾¿â»Ö¸´É¾³ıÎÄ¼ş
+	$ rm <file> //åˆ é™¤å·¥ä½œåŒºçš„æ–‡ä»¶
+	$ git rm <file> //å¦‚æœçœŸçš„æƒ³åˆ ï¼Œåˆ é™¤ç‰ˆæœ¬åº“é‡Œçš„æ–‡ä»¶
+	$ git checkout -- <file> //è¯¯åˆ äº†å·¥ä½œåŒºæ–‡ä»¶ï¼Œç”¨ç‰ˆæœ¬åº“æ¢å¤åˆ é™¤æ–‡ä»¶
 
 
 Remote repository
-	$ ssh-keygen -t rsa -C "email@example.com" //´´½¨sshĞ­Òé¹«Ô¿ºÍË½Ô¿
-	//½øÈëµ½GitHubÖĞÌí¼Óssh key ¼´¿ÉÔ¶³ÌÍÆËÍ
+	$ ssh-keygen -t rsa -C "email@example.com" //åˆ›å»ºsshåè®®å…¬é’¥å’Œç§é’¥
+	//è¿›å…¥åˆ°GitHubä¸­æ·»åŠ ssh key å³å¯è¿œç¨‹æ¨é€
 
 9.Add remote repository =
 	$ git remote add origin https://github.com/SmalBox/learngit.git
 	$ git remote add origin git@github.com:SmalBox/learngit.git
-	//GitHubÉÏµÄÌáÊ¾Ìí¼ÓÔ¶³Ì¿â.ÕâÁ½ÖÖ¶¼¿ÉÒÔ
-	$ git push -u origin master //½«±¾µØ¿âÍÆËÍµ½GitHub
+	//GitHubä¸Šçš„æç¤ºæ·»åŠ è¿œç¨‹åº“.è¿™ä¸¤ç§éƒ½å¯ä»¥
+	$ git push -u origin master //å°†æœ¬åœ°åº“æ¨é€åˆ°GitHub
 
 10.Clone from remote repository
-	$ git clone git@github.com:SmalBox/gitskills.git //´ÓÔ¶³Ì¿ËÂ¡µ½±¾µØ
+	$ git clone git@github.com:SmalBox/gitskills.git //ä»è¿œç¨‹å…‹éš†åˆ°æœ¬åœ°
 
 
 Manage branch
 
 11.Create & Combine branch
-	$ git branch //²é¿´·ÖÖ§½á¹¹
-	$ git branch <name> //´´½¨·ÖÖ§
-	$ git checkout <name> //ÇĞ»»·ÖÖ§
-	$ git checkout -b <name> //´´½¨²¢ÇĞ»»·ÖÖ§
-	$ git merge <name> //ºÏ²¢Ä³·ÖÖ§µ½µ±Ç°·ÖÖ§
-	$ git branch -d <name> //É¾³ıÄ³·ÖÖ§
+	$ git branch //æŸ¥çœ‹åˆ†æ”¯ç»“æ„
+	$ git branch <name> //åˆ›å»ºåˆ†æ”¯
+	$ git checkout <name> //åˆ‡æ¢åˆ†æ”¯
+	$ git checkout -b <name> //åˆ›å»ºå¹¶åˆ‡æ¢åˆ†æ”¯
+	$ git merge <name> //åˆå¹¶æŸåˆ†æ”¯åˆ°å½“å‰åˆ†æ”¯
+	$ git branch -d <name> //åˆ é™¤æŸåˆ†æ”¯
 
-	$ git checkout -b dev //´´½¨²¢ÇĞ»» µ½dev·ÖÖ§
-	$ git branch //²é¿´ ·ÖÖ§
-	$ git checkout master //ÇĞ»» µ½master·ÖÖ§
-	$ git merge dev //°Ñdev·ÖÖ§ ºÏ²¢ µ½master·ÖÖ§
-	$ git branch -d dev //É¾³ı dev·ÖÖ§
+	$ git checkout -b dev //åˆ›å»ºå¹¶åˆ‡æ¢ åˆ°devåˆ†æ”¯
+	$ git branch //æŸ¥çœ‹ åˆ†æ”¯
+	$ git checkout master //åˆ‡æ¢ åˆ°masteråˆ†æ”¯
+	$ git merge dev //æŠŠdevåˆ†æ”¯ åˆå¹¶ åˆ°masteråˆ†æ”¯
+	$ git branch -d dev //åˆ é™¤ devåˆ†æ”¯
+
+12.Conflict fixed
+	//å½“ä¸¤ä¸ªåˆ†æ”¯ä¿®æ”¹åŒä¸€ä¸ªæ–‡ä»¶ï¼Œåˆå¹¶æ—¶äº§ç”Ÿå†²çªã€‚
+	//åœ¨å½“å‰åˆ†æ”¯ä¿®æ”¹å†²çªæ–‡ä»¶ï¼Œå†addå’Œcommitä¹‹åé‡æ–°åˆå¹¶ã€‚
+	$ git log --graph --pretty=oneline --addrev-commit //æŸ¥çœ‹åˆ†ä¹‹åˆå¹¶å›¾
+	
+13.Branch strategy
+	$ git merge --no-ff -m "merge with no-ff" dev //ä¸ä½¿ç”¨Fast
+	forwardåˆå¹¶ï¼Œåˆ›å»ºä¸€ä¸ªcommitè®°å½•ã€‚
+
+14.Bug branch(Stach)
+	$ git stash //æŠŠæš‚æ—¶æ²¡å®Œæˆçš„åˆ†æ”¯å‚¨è—èµ·æ¥
+	$ git stash list //åˆ—å‡ºå­˜å‚¨çš„å„ä¸ªç‰ˆæœ¬
+	$ git stash pop //æ¢å¤å‚¨è—ï¼Œå¹¶åˆ é™¤stachè®°å½•
+	$ git stash apply stash@{0} //æ¢å¤åˆ°stash0
+	$ git stash drop //åˆ é™¤stashå†…å®¹
