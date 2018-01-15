@@ -102,3 +102,18 @@ Manage branch
 	$ git checkout -b dev origin/dev //创建本地dev链接远程仓库中的dev
 	$ git pull //推送失败，远程分支新，用此试图合并
 	$ git git  branch --set-upstream-to=<remote name>/<branch name> //无跟踪信息时，说明本地分支与远程分支没有建立关系，用此建立
+
+16.Tag
+	$ git tag <name> //给当前分支打标签,标签打在最新提交的commit上
+	$ git tag //查看当前分支的标签
+	$ git tag <name> <commit id> //给某一个版本的commit打标签
+	$ git tag -a <tag name> -m "description" <commit id> //带有说明的标签
+	$ git tag -s <tag name> -m "description" <commit id> //私钥签名一个标签
+	$ git show <tag name> //查看标签信息
+	$ git tag -d <tag name> //删除标签
+	$ git push <remote name> <tag name> //推送某一标签到远程仓库
+	$ git push <remote name> --tags //推送全部标签到远程
+	//删除远程标签，要先删除本地标签，再推送远程。格式如下：
+	$ git tag -d <tag name> //删除本地标签
+	$ git push <remote name> :refs/tags/<tag name> //推送远程
+
