@@ -52,10 +52,11 @@ Remote repository
 	$ ssh-keygen -t rsa -C "email@example.com" //创建ssh协议公钥和私钥
 	//进入到GitHub中添加ssh key 即可远程推送
 
-9.Add remote repository =
+9.Add and remove remote repository =
 	$ git remote add origin https://github.com/SmalBox/learngit.git
 	$ git remote add origin git@github.com:SmalBox/learngit.git
 	//GitHub上的提示添加远程库.这两种都可以
+	$ git remote rm <remote name> //移除远程库
 	$ git push -u origin master //将本地库推送到GitHub
 
 10.Clone from remote repository
@@ -117,3 +118,11 @@ Manage branch
 	$ git tag -d <tag name> //删除本地标签
 	$ git push <remote name> :refs/tags/<tag name> //推送远程
 
+17.Alias
+	$ git config --global alias.co checkout //设置全局简写
+	$ git config --global alias.st status 
+	$ git config --global alias.ci commit
+	$ git config --global alias.br branch
+	$ git config --global alias.lol "log --pretty=oneline"
+	$ git config --global alias.glol "log --graph --pretty=oneline --abbrev-commit"
+	//全局的配置文件在用户目录下名为：.gitconfig中记录。每个仓库的配置文件在仓库下的.git文件下config文件中记录
