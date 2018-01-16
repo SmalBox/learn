@@ -1,0 +1,33 @@
+Html note
+
+1.Document declaration
+	<!DOCTYPE> //为游览器提供一项信息（声明），即html是用什么版本写的
+	//常用声明
+		HTML5
+			<!DOCTYPE html>
+		HTML4
+			<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+			"http://www.w3.org/TR/html4/loose.dtd">
+		HTML1.0 
+			<doctype HTML PUBLIC "-//W3C//DTD XHTML 1.0 TRANSITIONAL//EN"
+			"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	//XHTML 正确嵌套、元素关闭、元素小写、文档只有一个根元素
+
+2.Element
+	<head>
+		//头部元素可以包含：<title> <meta> <base> <link> <script> <style>
+
+		<title> //游览器工具栏中标题、收藏夹显示标题、搜索引擎结果中的标题
+		<base> //页面上所有链接默认地址或目标（target）
+		<meta> //规定页面描述、关键词、文档作者、最后修改时间等元数据
+			<meta name="" content="" />
+				//name 属性值：auhor description keywords generator revised others
+		<link> //链接外部资源
+			<link rel="stylesheet" type="text/css" href="base.css" />
+		<style> //定义文档样式信息
+		<script> //定义客户端脚本
+	
+	<body>
+		//块级元素
+
+		//行内元素
