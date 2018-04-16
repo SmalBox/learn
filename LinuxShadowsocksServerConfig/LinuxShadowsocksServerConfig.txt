@@ -4,6 +4,9 @@ Linux Shadowsocks Server Config
 $Debian / Ubuntu:
 $sudo apt-get install python-pip
 $pip install shadowsocks
+	$locale #查看语言环境
+	$export LC_ALL=C  #环境配置出错时用这个解决
+#下载到了~/.cache/pip/wheels/c9/d8/ff/5425932823af361970658e9421b4d53ac50b08dcbe6fd41e5f/shadowsocks-2.8.2-cp27-none-any.whl
 
 CentOS:
 $yum install python-setuptools && easy_install pip
