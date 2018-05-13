@@ -9,7 +9,7 @@
 using namespace std;
 int main(int argc, char const *argv[]) {
   int a, b;
-  cout<<"请输入两个整数"<<endl;
+  cout<<"Please enter tow int numbers"<<endl;
   cin>>a>>b;
   cout<<a<<" * "<<b<<" = "<<a*b<<endl;
   return 0;
