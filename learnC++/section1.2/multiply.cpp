@@ -1,14 +1,16 @@
 /*************************************************************************
-    > File Name: test.cpp
+    > File Name: multiply.cpp
     > Author: zcy
     > Email: zcy505414969@gmail.com
-    > Created Time: 2018/3/13 23:48:14
+    > Created Time: 2018/5/12 20:02:02
  ************************************************************************/
 
 #include<iostream>
 using namespace std;
-int main()
-{
-	cout<<"Hello world";
-	return 0;
+int main(int argc, char const *argv[]) {
+  int a, b;
+  cout<<"请输入两个整数"<<endl;
+  cin>>a>>b;
+  cout<<a<<" * "<<b<<" = "<<a*b<<endl;
+  return 0;
 }
