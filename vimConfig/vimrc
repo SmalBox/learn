@@ -1,0 +1,222 @@
+" Configuration file for vim
+set modelines=0		" CVE-2007-2438
+
+" Normally we use vim-extensions. If you want true vi-compatibility
+" remove change the following statements
+set nocompatible	" Use Vim defaults instead of 100% vi compatibility
+set backspace=2		" more powerful backspacing
+
+" Don't write backup file if vim is being called by "crontab -e"
+au BufWrite /private/tmp/crontab.* set nowritebackup nobackup
+" Don't write backup file if vim is being called by "chpass"
+au BufWrite /private/etc/pw.* set nowritebackup nobackup
+
+let skip_defaults_vim=1
+
+set nu
+set bg=dark
+set scrolloff=3
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")} 
+
+set foldenable
+set foldmethod=manual
+
+set encoding=utf-8
+set fileencoding=utf-8
+
+
+set diffexpr=MyDiff()
+function MyDiff()
+  let opt = '-a --binary '
+  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+  let arg1 = v:fname_in
+  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+  let arg2 = v:fname_new
+  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+  let arg3 = v:fname_out
+  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+  if $VIMRUNTIME =~ ' '
+    if &sh =~ '\<cmd'
+      if empty(&shellxquote)
+        let l:shxq_sav = ''
+        set shellxquote&
+      endif
+      let cmd = '"' . $VIMRUNTIME . '\diff"'
+    else
+      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+    endif
+  else
+    let cmd = $VIMRUNTIME . '\diff'
+  endif
+  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3
+  if exists('l:shxq_sav')
+    let &shellxquote=l:shxq_sav
+  endif
+endfunction
+
+
+autocmd BufNewFile *.cpp,*.[ch],*.sh,*.java exec ":call SetTitle()" 
+
+func SetTitle() 
+
+    if &filetype == 'sh' 
+
+        call setline(1,"\#########################################################################") 
+
+        call append(line("."), "\# File Name: ".expand("%")) 
+
+        call append(line(".")+1, "\# Author: zcy") 
+
+        call append(line(".")+2, "\# Email: zcy505414969@gmail.com") 
+
+        call append(line(".")+3, "\# Created Time: ".strftime("%c")) 
+
+        call append(line(".")+4, "\#########################################################################") 
+
+        call append(line(".")+5, "\#!/bin/bash") 
+
+        call append(line(".")+6, "") 
+
+    else 
+
+        call setline(1, "/*************************************************************************") 
+
+        call append(line("."), "    > File Name: ".expand("%")) 
+
+        call append(line(".")+1, "    > Author: zcy") 
+
+        call append(line(".")+2, "    > Email: zcy505414969@gmail.com") 
+
+        call append(line(".")+3, "    > Created Time: ".strftime("%c")) 
+
+        call append(line(".")+4, " ************************************************************************/") 
+
+        call append(line(".")+5, "")
+
+    endif
+
+    if &filetype == 'cpp'
+
+        call append(line(".")+6, "#include<iostream>")
+
+        call append(line(".")+7, "using namespace std;")
+
+        call append(line(".")+8, "")
+
+    endif
+
+    if &filetype == 'c'
+
+        call append(line(".")+6, "#include<stdio.h>")
+
+        call append(line(".")+7, "")
+
+    endif
+
+    autocmd BufNewFile * normal G
+
+endfunc
+
+map <F9> :call CompileRunGcc()<CR>
+
+func! CompileRunGcc()
+
+    exec "w"
+
+    if &filetype == 'c'
+
+        exec "!g++ % -g -o %<"
+
+        exec "! ./%<"
+
+    elseif &filetype == 'cpp'
+
+        exec "!g++ % -g -o %<"
+
+        exec "! ./%<"
+
+    elseif &filetype == 'java' 
+
+        exec "!javac ./%" 
+
+        exec "!java ./%<"
+
+    elseif &filetype == 'sh'
+
+        :!./%
+
+    endif
+
+endfunc
+
+map <F10> :call Rungdb()<CR>
+
+func! Rungdb()
+
+    exec "w"
+
+    exec "!g++ % -g -o %<"
+
+    exec "!gdb ./%<"
+
+endfunc
+
+syntax enable
+syntax on
+
+set tabstop=4
+
+set softtabstop=4
+
+set shiftwidth=4
+
+set history=1000
+
+"set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
+
+"set statusline=[%F]%y%r%m%*%=[Line:%l/%L,Column:%c][%p%%]
+
+set laststatus=2
+
+set cmdheight=2
+
+set backspace=2
+
+set selection=exclusive
+
+set selectmode=mouse,key
+
+set matchtime=1
+
+set scrolloff=3
+
+:inoremap ( ()<ESC>i
+
+:inoremap ) <c-r>=ClosePair(')')<CR>
+
+:inoremap { {<CR>}<ESC>O
+
+:inoremap } <c-r>=ClosePair('}')<CR>
+
+:inoremap [ []<ESC>i
+
+:inoremap ] <c-r>=ClosePair(']')<CR>
+
+:inoremap " ""<ESC>i
+
+:inoremap ' ''<ESC>i
+
+""highlight LineNr cterm=bold ctermfg=red  
+""highlight StorageClass cterm=bold ctermfg=darkgreen  
+""highlight Type cterm=bold ctermfg=blue  
+""highlight LineNr cterm=bold ctermbg=black  
+""highlight phpStructure cterm=bold ctermfg=darkred  
+""highlight phpFunctions cterm=bold ctermfg=256  
+""highlight Title ctermfg=blue   
+""highlight pythonString cterm=bold ctermfg=gray  
+""highlight pythonFunction cterm=bold   
+""highlight pythonInclude cterm=bold ctermfg=lightblue  
+""highlight javaScriptStringS ctermfg=gray   
+""highlight String ctermfg=gray  
+""hi Search cterm=NONE ctermfg=darkred ctermbg=yellow cterm=reverse  
